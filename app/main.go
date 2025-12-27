@@ -8,5 +8,10 @@ import (
 var _ = fmt.Print
 
 func main() {
+	var input string
 	fmt.Print("$ ")
+	fmt.Scanln(&input)
+	if input != "cd" || input != "echo" {
+		fmt.Print("Invalid command")
+	}
 }
