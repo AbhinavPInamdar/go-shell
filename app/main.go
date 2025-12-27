@@ -10,7 +10,7 @@ var _ = fmt.Print
 func main() {
 	var input string
 	for true {
-		fmt.Print("$ ")
+		fmt.Println("$ ")
 		fmt.Scanln(&input)
 		if input != "cd" || input != "echo" {
 			fmt.Print(input, ": command not found")
