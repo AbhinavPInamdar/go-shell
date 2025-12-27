@@ -17,14 +17,21 @@ func main() {
 		input = strings.TrimSpace(input)
 
 		command := strings.Split(input, " ")
-		if command[0] != "cd" && command[0] != "echo" && command[0] != "exit" {
-			fmt.Println(command[0] + ": command not found")
-		} else if command[0] == "exit" {
-			break
-		} else if command[0] == "echo" {
-			fmt.Println(strings.Join(command[1:], " "))
-		}
 
+		switch command[0] {
+		case "echo":
+			fmt.Println(strings.Join(command[1:], " "))
+		case "exit":
+			return
+		case "type":
+			if command[1] == "echo" || command[1] == "exit" {
+				fmt.Println(command[1] + " is a shell builtin")
+			} else {
+				fmt.Println(command[1] + ": not found")
+			}
+		default:
+			fmt.Println(command[0] + ": command not found")
+		}
 	}
 
 }
