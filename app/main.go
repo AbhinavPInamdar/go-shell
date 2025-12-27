@@ -24,7 +24,7 @@ func main() {
 		case "exit":
 			return
 		case "type":
-			if command[1] == "echo" || command[1] == "exit" {
+			if command[1] == "echo" || command[1] == "exit" || command[1] == "type" {
 				fmt.Println(command[1] + " is a shell builtin")
 			} else {
 				fmt.Println(command[1] + ": not found")
