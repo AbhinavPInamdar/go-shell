@@ -9,11 +9,15 @@ var _ = fmt.Print
 
 func main() {
 	var input string
-	for true {
+	i := true
+	for i {
 		fmt.Print("$ ")
 		fmt.Scan(&input)
-		if input != "cd" && input != "echo" {
+		if input != "cd" && input != "echo" && input != "break" {
 			fmt.Println(input + ": command not found")
+		} else if input == "break" {
+			i = false
+			break
 		}
 	}
 
