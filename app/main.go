@@ -12,8 +12,8 @@ func main() {
 	for true {
 		fmt.Print("$ ")
 		fmt.Scan(&input)
-		if input != "cd" || input != "echo" {
-			fmt.Println(input, " : command not found")
+		if input != "cd" && input != "echo" {
+			fmt.Println(input + ": command not found")
 		}
 	}
 
