@@ -33,7 +33,7 @@ func main() {
 }
 
 func checkType(cmd string) {
-	if cmd == "echo" || cmd == "exit" {
+	if cmd == "echo" || cmd == "exit" || cmd == "type" {
 		fmt.Println(cmd + " is a shell builtin")
 		return 
 	}
