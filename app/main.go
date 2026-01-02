@@ -34,7 +34,7 @@ func main() {
 
 func checkType(cmd string) {
 	if cmd == "echo" || cmd == "exit" {
-		fmt.Println(cmd + "is a shell builtin")
+		fmt.Println(cmd + " is a shell builtin")
 	}
 	path, err := exec.LookPath(cmd)
 	if err == nil {
