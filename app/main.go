@@ -42,5 +42,5 @@ func checkType(cmd string) {
 		return 
 	}
 
-	fmt.Println(path + ": not found")
+	fmt.Println(cmd + ": not found")
 }
