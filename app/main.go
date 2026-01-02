@@ -31,24 +31,14 @@ func main() {
 	}
 }
 
-func checkType(path string) {
-	if path == "echo" || path == "exit" {
-		fmt.Println(path + "is a shell builtin")
+func checkType(cmd string) {
+	if cmd == "echo" || cmd == "exit" {
+		fmt.Println(cmd + "is a shell builtin")
 	}
-	pathValue := os.Getenv("PATH")
-	dirs := strings.Split(pathValue, ":")
-	for _, dir := range dirs {
-		if dir != "" {
-			continue
-		}
-
-		fullpath := dir + "/" + path
-		fileInfo, err := os.Stat(fullpath)
-		if err == nil && !fileInfo.IsDir() {
-			fmt.Println(path + "is" + fullpath )
-			return 
-		}
-
+	path, err := os.LookPath(cmd)
+	if err == nil {
+		fmt.Prinln(cmd + "is" + path)
 	}
+
 	fmt.Println(path + ": not found")
 }
