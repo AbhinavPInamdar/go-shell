@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"os/exec"
 	"strings"
 )
 
@@ -35,9 +36,10 @@ func checkType(cmd string) {
 	if cmd == "echo" || cmd == "exit" {
 		fmt.Println(cmd + "is a shell builtin")
 	}
-	path, err := os.LookPath(cmd)
+	path, err := exec.LookPath(cmd)
 	if err == nil {
-		fmt.Prinln(cmd + "is" + path)
+		fmt.Println(cmd + " is " + path)
+		return 
 	}
 
 	fmt.Println(path + ": not found")
