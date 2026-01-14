@@ -6,8 +6,6 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-//	"path/filepath"
-//	"log"
 )
 
 func main() {
@@ -29,7 +27,7 @@ func main() {
 		case "type":
 			checkType(command[1])
 		case "pwd":
-			fmt.Println(os.Getwd())
+			fmt.Println(getDir())
 		default:
 			runProgram(command)
 		}
@@ -70,13 +68,14 @@ func runProgram(cmd []string) error {
 	
 	return c.Run()
 }
-/*
+
 func getDir() string {
-	ex, err := os.Executable()
+	ex, err := os.Getwd()
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
+		return ""
 	}
-	execPath := filepath.Dir(ex)
-	return execPath
+	return ex
+
 }
-*/
+
