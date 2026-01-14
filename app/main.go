@@ -6,8 +6,8 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-	"path/filepath"
-	"log"
+//	"path/filepath"
+//	"log"
 )
 
 func main() {
