@@ -53,6 +53,7 @@ func runProgram(cmd []string) error {
 
 	path, err := exec.LookPath(cmd[0])
 	if err != nil {
+		fmt.Println(cmd[0] + ": not found")
 		return err
 	}
 
