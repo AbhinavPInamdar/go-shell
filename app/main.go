@@ -26,6 +26,8 @@ func main() {
 			return
 		case "type":
 			checkType(command[1])
+		case "pwd":
+			fmt.Println(os.Getwd())
 		default:
 			runProgram(command)
 		}
