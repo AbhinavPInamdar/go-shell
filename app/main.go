@@ -27,7 +27,6 @@ func main() {
 		case "type":
 			checkType(command[1])
 		default:
-			fmt.Println(command[0] + ": command not found")
 			runProgram(command)
 		}
 	}
@@ -63,5 +62,5 @@ func runProgram(cmd []string) error {
 	c.Stderr = os.Stderr
 
 	
-	return c.Run()	
+	return c.Run()
 }
