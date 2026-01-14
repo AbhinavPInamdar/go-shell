@@ -56,7 +56,7 @@ func runProgram(cmd []string) error {
 		return err
 	}
 
-	c := exec.Command(path, cmd[1]...)
+	c := exec.Command(path, cmd[1:]...)
 	c.Stdin = os.Stdin
 	c.Stdout = os.Stdout
 	c.Stderr = os.Stderr
