@@ -1,34 +1,41 @@
-[![progress-banner](https://backend.codecrafters.io/progress/shell/0ead3ced-d5ab-41b9-a0fb-4b1864df4e01)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# go-shell
 
-This is a starting point for Go solutions to the
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
+A POSIX-compliant shell implementation written in Go. This project implements a functional shell capable of interpreting commands, running external programs, and handling builtin commands.
 
-In this challenge, you'll build your own POSIX compliant shell that's capable of
-interpreting shell commands, running external programs and builtin commands like
-cd, pwd, echo and more. Along the way, you'll learn about shell command parsing,
-REPLs, builtin commands, and more.
+## Features
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+- Command parsing and execution
+- Builtin commands: `cd`, `pwd`, `echo`, `type`, `exit`
+- External program execution with PATH resolution
+- REPL (Read-Eval-Print Loop) interface
 
-# Passing the first stage
+## Requirements
 
-The entry point for your `shell` implementation is in `app/main.go`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
+- Go 1.25 or higher
 
+## Usage
+
+Run the shell:
 ```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
+./your_program.sh
 ```
 
-Time to move on to the next stage!
+Or build and run directly:
+```sh
+go build -o shell app/main.go
+./shell
+```
 
-# Stage 2 & beyond
+## Project Structure
 
-Note: This section is for stages 2 and beyond.
+```
+.
+├── app/
+│   └── main.go          # Main shell implementation
+├── .codecrafters/       # CodeCrafters configuration
+└── your_program.sh      # Shell runner script
+```
 
-1. Ensure you have `go (1.25)` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `app/main.go`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+## Development
+
+This project was built as part of the [CodeCrafters "Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
