@@ -29,7 +29,7 @@ func main() {
 		case "type":
 			checkType(command[1])
 		case "pwd":
-			fmt.Println(getDir())
+			fmt.Println(os.Getwd())
 		default:
 			runProgram(command)
 		}
@@ -70,7 +70,7 @@ func runProgram(cmd []string) error {
 	
 	return c.Run()
 }
-
+/*
 func getDir() string {
 	ex, err := os.Executable()
 	if err != nil {
@@ -79,3 +79,4 @@ func getDir() string {
 	execPath := filepath.Dir(ex)
 	return execPath
 }
+*/
