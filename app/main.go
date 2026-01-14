@@ -28,6 +28,7 @@ func main() {
 			checkType(command[1])
 		default:
 			fmt.Println(command[0] + ": command not found")
+			runProgram(command)
 		}
 	}
 }
@@ -44,4 +45,28 @@ func checkType(cmd string) {
 	}
 
 	fmt.Println(cmd + ": not found")
+}
+
+func runProgram(cmd []string) error {
+	if len(cmd) == 0 {
+		fmt.Errorf("empty command")
+	}
+
+	cmd1 := cmd[0]
+	ar := cmd[1:]
+
+	path, err := exec.LookPath(cmd1)
+	if err != nil {
+		return err
+	}
+
+	c := exec.Command(path, ar...)
+	out, err := c.CombinedOutput()
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("%s", out)
+
+	return nil
 }
