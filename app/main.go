@@ -57,6 +57,7 @@ func runProgram(cmd []string) error {
 	}
 
 	c := exec.Command(path, cmd[1:]...)
+	c.Args = cmd
 	c.Stdin = os.Stdin
 	c.Stdout = os.Stdout
 	c.Stderr = os.Stderr
