@@ -49,24 +49,19 @@ func checkType(cmd string) {
 
 func runProgram(cmd []string) error {
 	if len(cmd) == 0 {
-		fmt.Errorf("empty command")
+		return nil
 	}
 
-	cmd1 := cmd[0]
-	ar := cmd[1:]
-
-	path, err := exec.LookPath(cmd1)
+	path, err := exec.LookPath(cmd[0])
 	if err != nil {
 		return err
 	}
 
-	c := exec.Command(path, ar...)
-	out, err := c.CombinedOutput()
-	if err != nil {
-		return err
-	}
+	c := exec.Command(path, cmd...)
+	c.Stdin = os.Stdin
+	c.Stdout = os.Stdout
+	c.Stderr = os.Stderr
 
-	fmt.Printf("%s", out)
-
-	return nil
+	
+	return c.Run()	
 }
